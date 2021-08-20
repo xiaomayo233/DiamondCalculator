@@ -1,1 +1,1 @@
-# xiaomayo233.github.io
+DiamondCalculator
