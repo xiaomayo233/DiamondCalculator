@@ -9,7 +9,7 @@ function cut(i){
 	}
 	return i;
 }
-function cal(seed,cx,cz){
+function cal(seed,cx,cz,v){
 	if (seed == null || cx == null || cz == null) {
 		throw new Error("invalid data");
 	}
@@ -53,7 +53,7 @@ function cal(seed,cx,cz){
 	var j = cut(third + fourth) | 1n;
 
 	/* 获取坐标 */
-	temp =((16n * cx * i + 16n * cz * j) ^ seed) + 60009n;
+	temp =((16n * cx * i + 16n * cz * j) ^ seed) + v;
 	
 	temp = (temp ^ mul) & mask;
 	
@@ -67,5 +67,3 @@ function cal(seed,cx,cz){
 	var z = (second + 16n * cz);
 	return {x: parseInt(x), z: parseInt(z)};
 }
-
-console.log(cal("5241002004345974207","-3","-3"));
